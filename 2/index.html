@@ -10,19 +10,30 @@
     <h2>Enter details below</h2>
     <form action="">
       <p>
-        <label for="nam1">Enter Username: </label>
-        <input id="name" placeholder="Username" value="0" />
+        <label for="name">Enter Username: </label>
+        <input id="name" placeholder="Username" />
       </p>
       <p>
-        <label for="nam2">Enter second number</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="enter number"
-          value="0"
-        />
+        <label for="password">Enter password</label>
+        <input type="password" id="password" placeholder="enter password" />
       </p>
-      <button type="button" id="add">Add</button>
+      <button type="button" id="login">Login</button>
     </form>
+    <script>
+      window.onload = function() {
+        var name = document.getElementById('name');
+        var pass = document.getElementById('password');
+        var btn = document.getElementById('login');
+
+        btn.addEventListener('click', e => {
+          var username = name.value;
+          var password = pass.value;
+          if (username.length < 3 || password.length < 3)
+            return alert('Username or password too short');
+          if (username === 'Cobbina' && password === 'abcd1234')
+            window.location = './welcome.html?user=' + username;
+        });
+      };
+    </script>
   </body>
 </html>
